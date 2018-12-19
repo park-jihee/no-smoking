@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> <!-- jquery를 사용하기 위해 쓰는 것 -->
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+    }
+    .list ul {
+        width: 100%;
+        height: 100px;
+    }
+    .list li {
+        width: 25%;
+        height: 100px;
+        float: left;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 100px;
+        text-align: center;
+    }
+    .list a {
+        color: black;
+    }
+    #div1 {
+        background-color: red;
+        width: 100%;
+        height: 1000px;
+    }
+    #div2 {
+        background-color: orange;
+        width: 100%;
+        height: 1000px;
+    }
+    #div3 {
+        background-color: yellow;
+        width: 100%;
+        height: 1000px;
+    }
+    #div4 {
+        background-color: green;
+        width: 100%;
+        height: 1000px;
+    }
+</style>
+
+<body>
+    <div class="list">
+        <ul>
+            <!-- 1. 클릭하면 fnMove( 숫자를 보낸다 ) -->
+            <a href="#" onclick="fnMove('1')"><li>RED</li></a>
+            <a href="#" onclick="fnMove('2')"><li>ORANGE</li></a>
+            <a href="#" onclick="fnMove('3')"><li>YELLOW</li></a>
+            <a href="#" onclick="fnMove('4')"><li>GREEN</li></a>
+        </ul>
+    </div>
+    <div id="div1"></div> <!-- 4. 해당 영역인 #div1로 이동 끝 -->
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+</body>
+<script>
+    // 2. 보낸 숫자를 fuMove(seq) seq = 1 받는다 
+    //     ex >  fnMove( 1 ) 
+    function fnMove(seq) {
+        var offset = $("#div" + seq).offset();  // 2. seq를 #div에 더해줌 ==> #div1 ==> var offset에 넣어준다
+        $('html, body').animate({ scrollTop: offset.top }, 400); // 3. 해당 영역으로 이동 #div1
+    }
+</script>
+
+</html>
